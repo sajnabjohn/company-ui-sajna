@@ -1,0 +1,42 @@
+<div>
+    <div class="row">
+        <h2 class="Header">
+            <span class="arrow"></span> Publication Details </h2>
+    </div>
+    <div class="right_content">
+        <div class="row">
+            <div class="col-8"></div>
+            <div class="col-4">
+                <div class="form-group">
+                    <input type="search" class="form-control" id="exampleFormControlInput1"
+                    [(ngModel)]="searchText" autocomplete="off" placeholder="Search">
+                </div>
+            </div>
+        </div>
+        <div class="scrollbar scrollbar-primary">
+            <table class="table table-striped separate">
+                <caption></caption>
+                <thead>
+                    <tr class="tbl_header">
+                        <th scope="col">Publication</th>
+                        <th scope="col">Free Copies</th>
+                        <th scope="col">Paid Copies</th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of publicationDetails | filter:searchText">
+                        <td>
+                            <span class="icon1"></span> {{item.publicationName}}
+                        </td>
+                        <td>{{item.paidCopy}}</td>
+                        <td>{{item.freeCopy}}</td>
+                        <td>
+                            <a (click)="selectPublication('DL')"><span class="edit"></span></a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

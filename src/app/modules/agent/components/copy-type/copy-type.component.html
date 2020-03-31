@@ -1,0 +1,29 @@
+<div class="row no_margin alert clr_white" role="alert">
+  <div class="col-lg-6">
+    <span class="name"><b>{{selectedSubAgent.name}}</b> </span>
+    <p>Agent Code : {{selectedSubAgent.code}}</p>
+  </div>
+  <div class="col-lg-6 text-right">
+    <p><b>Unit :</b> {{selectedSubAgent.unit}}</p>
+  </div>
+</div>
+<div class="right_content">
+  <table class="table table-striped separate">
+    <caption></caption>
+    <thead>
+      <tr class="tbl_header">
+        <th scope="col" *ngFor="let displayColumn of displayColumns">{{displayColumn}}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let copyType of selectedSubAgent.copyTypes">
+        <td>{{copyType.name}}</td>
+        <td>{{copyType.copies}}</td>
+        <td>
+          <a *ngIf="copyType.editable" (click)="indetUpdation(copyType)"> <span class="edit"></span></a>
+          <span *ngIf="!copyType.editable">Pending approval</span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

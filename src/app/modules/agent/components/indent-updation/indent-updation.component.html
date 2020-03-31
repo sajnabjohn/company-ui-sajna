@@ -1,0 +1,72 @@
+<div>
+    <div class="row">
+        <h2 class="Header">
+            <span class="arrow" (click)="location.back()"></span> Indent Entry </h2>
+    </div>
+    <div class="right_content indent_page">
+        <div class="row" role="alert">
+            <div class="col-lg-6">
+                <span class="name"><strong>subAgent.name</strong>	</span>
+                <p>subAgent.unit</p>
+            </div>
+            <div class="col-lg-6">
+                <p><strong>Sub agent Code :</strong> subAgent.code</p>
+                <p><strong>Edition :</strong> subAgent.edition </p>
+            </div>
+        </div>
+        <hr>
+        <h2>Period</h2>
+        <form class="form_style">
+            <div class="form-row align-items-center">
+                <div class="col-auto">
+                    <div class="form-check mb-2">
+                        <input class="form-check-input" [(ngModel)]="selectedStatus" type="radio" id="autoSizingCheck1" name="status">
+                        <label class="form-check-label" for="autoSizingCheck1">Permanent</label>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <div class="form-check mb-2">
+                        <input class="form-check-input" [(ngModel)]="selectedStatus" type="radio" id="autoSizingCheck2" name="status">
+                        <label class="form-check-label" for="autoSizingCheck2">Temporary</label>
+                    </div>
+                </div>
+
+                <div class="col-auto">
+                    <label class="sr-only" for="inlineFormInput">Name</label>
+                    <input type="date" class="form-control mb-2" id="inlineFormInput" placeholder="Date picker">
+                </div>
+
+            </div>
+        </form>
+        <form class="form_style">
+            <div class="form-row align-items-center">
+                <div class="col-auto">
+                    <div class="form-check mb-2">
+                        <input class="form-check-input" [(ngModel)]="selectedType" type="radio" id="autoSizingCheck3" name="type">
+                        <label class="form-check-label" for="autoSizingCheck3">Increase</label>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <div class="form-check mb-2">
+                        <input class="form-check-input" [(ngModel)]="selectedType" type="radio" id="autoSizingCheck4" name="type">
+                        <label class="form-check-label" for="autoSizingCheck4">Decrease</label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-md-4 mb-3">
+                    <label for="validationCustom01">Current Copies</label>
+                    <input type="text" class="form-control" id="validationCustom01" placeholder="1500">
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label for="validationCustom02">Increase Copies</label>
+                    <input type="text" class="form-control" id="validationCustom02" placeholder="500">
+                </div>
+            </div>
+        </form>
+        <div class="col-md-12 text-center">
+            <p><strong>Total copies :</strong> 2000</p>
+            <button type="submit" class="btn btn-primary submit_btn">Submit</button>
+        </div>
+    </div>
+</div>

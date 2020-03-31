@@ -1,0 +1,39 @@
+<div *ngIf="agent">
+    <button class="btn btn-light" type="button" (click)="onLogout()">Sign Out</button>
+    <div class="left_logo"> <img src="../../../../../assets/images/Group 19.png" alt="Manorama logo"></div>
+    <h2>{{agent.name}}</h2>
+    <div class="container profile">
+        <div class="row">
+            <div class="col-sm">
+                Agent Code : </div>
+            <div class="col-sm">
+                {{agent.code}} </div>
+        </div>
+        <div class="row">
+            <div class="col-sm">
+                Unit: </div>
+            <div class="col-sm">
+                {{agent.place}} </div>
+        </div>
+        <div class="row">
+            <div class="col-sm">
+                Inspector </div>
+            <div class="col-sm">
+                {{agent.inspectorName}} </div>
+        </div>
+        <div class="row ">
+            <div class="col-sm">
+                Inspector Phone </div>
+            <div class="col-sm">
+                {{agent.inspectorMobile}} </div>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary subscribtion_btn">
+        <span class="icon_subscription"></span>
+        Subscription Details</button>
+    <div class="bill_detials">
+        <span class="icon_bill"></span>
+        <button type="submit" class="btn btn-primary bill_btn">August, 2018 Bill &#8377; 20,256</button>
+        <p>Arrears &#8377; 10,500</p>
+    </div>
+</div>
