@@ -6,12 +6,12 @@
     <div class="right_content indent_page">
         <div class="row" role="alert">
             <div class="col-lg-6">
-                <span class="name"><strong>subAgent.name</strong>	</span>
-                <p>subAgent.unit</p>
+                <span class="name"><strong>{{subAgent.name}}</strong>	</span>
+                <p>{{subAgent.unit}}</p>
             </div>
             <div class="col-lg-6">
-                <p><strong>Sub agent Code :</strong> subAgent.code</p>
-                <p><strong>Edition :</strong> subAgent.edition </p>
+                <p><strong>Sub agent Code :</strong> {{subAgent.code}}</p>
+                <p><strong>Edition :</strong> {{subAgent.edition}} </p>
             </div>
         </div>
         <hr>
@@ -20,20 +20,20 @@
             <div class="form-row align-items-center">
                 <div class="col-auto">
                     <div class="form-check mb-2">
-                        <input class="form-check-input" [(ngModel)]="selectedStatus" type="radio" id="autoSizingCheck1" name="status">
+                        <input class="form-check-input" [(ngModel)]="selectedStatus" type="radio" id="autoSizingCheck1" name="permanent" value="0">
                         <label class="form-check-label" for="autoSizingCheck1">Permanent</label>
                     </div>
                 </div>
                 <div class="col-auto">
                     <div class="form-check mb-2">
-                        <input class="form-check-input" [(ngModel)]="selectedStatus" type="radio" id="autoSizingCheck2" name="status">
+                        <input class="form-check-input" [(ngModel)]="selectedStatus" type="radio" id="autoSizingCheck2" name="temporary" value="1">
                         <label class="form-check-label" for="autoSizingCheck2">Temporary</label>
                     </div>
                 </div>
 
                 <div class="col-auto">
                     <label class="sr-only" for="inlineFormInput">Name</label>
-                    <input type="date" class="form-control mb-2" id="inlineFormInput" placeholder="Date picker">
+                    <input type="date" class="form-control mb-2" onkeypress="return false;" [(ngModel)]="selectedDate" id="inlineFormInput" name="date" placeholder="Date picker" [value]="selectedDate">
                 </div>
 
             </div>
@@ -42,13 +42,13 @@
             <div class="form-row align-items-center">
                 <div class="col-auto">
                     <div class="form-check mb-2">
-                        <input class="form-check-input" [(ngModel)]="selectedType" type="radio" id="autoSizingCheck3" name="type">
+                        <input class="form-check-input" [(ngModel)]="selectedType" type="radio" id="autoSizingCheck3" name="increase" value="0">
                         <label class="form-check-label" for="autoSizingCheck3">Increase</label>
                     </div>
                 </div>
                 <div class="col-auto">
                     <div class="form-check mb-2">
-                        <input class="form-check-input" [(ngModel)]="selectedType" type="radio" id="autoSizingCheck4" name="type">
+                        <input class="form-check-input" [(ngModel)]="selectedType" type="radio" id="autoSizingCheck4" name="decrease" value="1">
                         <label class="form-check-label" for="autoSizingCheck4">Decrease</label>
                     </div>
                 </div>
@@ -56,17 +56,18 @@
             <div class="form-row">
                 <div class="col-md-4 mb-3">
                     <label for="validationCustom01">Current Copies</label>
-                    <input type="text" class="form-control" id="validationCustom01" placeholder="1500">
+                    <input type="number" class="form-control" disabled="true" [ngModel]="currentCopies" name="currentCopies" id="validationCustom01" placeholder="1500">
                 </div>
                 <div class="col-md-4 mb-3">
                     <label for="validationCustom02">Increase Copies</label>
-                    <input type="text" class="form-control" id="validationCustom02" placeholder="500">
+                    <input type="number" class="form-control" [(ngModel)]="increaseCopies" id="validationCustom02" name="increaseCopies" min="1" max="99999" oninput="this.value = Math.abs(this.value)" onkeypress="return event.charCode >= 48 && event.charCode <= 57" 
+                        required>
                 </div>
             </div>
         </form>
         <div class="col-md-12 text-center">
-            <p><strong>Total copies :</strong> 2000</p>
-            <button type="submit" class="btn btn-primary submit_btn">Submit</button>
+            <p><strong>Total copies :</strong> {{getTotalCopies()}}</p>
+            <button type="submit" class="btn btn-primary submit_btn" (click)="submit()">Submit</button>
         </div>
     </div>
 </div>
